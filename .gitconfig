@@ -1,0 +1,30 @@
+[user]
+	email = jamie.m.maddock@gmail.com
+	name = jmasaki24
+	password = 82cc6e2e655b483216b60c07c7c83aadf51054ab
+[core]
+  autocrlf = true
+[alias]
+  s = status
+  p = pull
+  f = fetch
+  d = diff -w
+  r = rebase -i
+  c = !git add -A && git commit
+  co = checkout
+  cob = checkout -b
+  com = checkout master
+  cp = cherry-pick
+  b = branch
+  lol = log --graph --oneline --decorate --color --all
+[credential]
+	helper = wincred
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[color]
+	ui = auto
+[winUpdater]
+	recentlySeenVersion = 2.27.0.windows.1
