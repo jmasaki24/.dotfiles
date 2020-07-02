@@ -7,7 +7,7 @@
 [alias]
   s = status
   p = pull
-  f = fetch
+  f = fetch -p
   d = diff -w
   r = rebase -i
   c = !git add -A && git commit
