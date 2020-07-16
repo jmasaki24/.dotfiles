@@ -17,14 +17,4 @@
   cp = cherry-pick
   b = branch
   lol = log --graph --oneline --decorate --color --all
-[credential]
-	helper = wincred
-[filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-[color]
-	ui = auto
-[winUpdater]
-	recentlySeenVersion = 2.27.0.windows.1
+
