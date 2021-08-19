@@ -3,9 +3,9 @@ if has('win32') || has('win64')
     let &shell='cmd.exe'
 endif
 
-call plug#begin('~/.vim/plugged')
-Plug 'morhetz/gruvbox'
-call plug#end()
+" call plug#begin('~/.vim/plugged')
+" Plug 'morhetz/gruvbox'
+" call plug#end()
 
 filetype plugin indent on
 syntax on
@@ -30,7 +30,7 @@ set tabstop=4 " show existing tab with 2 spaces width
 set softtabstop=4
 set shiftwidth=4 " when indenting with '>', use 4 spaces width
 
-autocmd vimenter * colorscheme gruvbox
+" autocmd vimenter * colorscheme gruvbox
 
 
 set path=**
@@ -44,13 +44,20 @@ let g:netrw_winsize = 25
 
 command! MakeTags !ctags -R .
 
-inoremap kj <esc>
-noremap! <silent> kj <esc>
-vnoremap <silent> kj <esc>
-onoremap <silent> kj <esc>
+inoremap kj <esc>l
+noremap! <silent> kj <esc>l
+vnoremap <silent> kj <esc>l
+onoremap <silent> kj <esc>l
+
 map Y y$
 
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
+
+nnoremap <leader>o o<esc>
+nnoremap <leader>O O<esc>
+
+" vnoremap <leader>y "*y
+" vnoremap <leader>p "*p

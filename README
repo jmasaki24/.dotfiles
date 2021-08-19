@@ -1,0 +1,7 @@
+Add `source ~/.dotfiles/.vimrc` to `~/.vimrc`
+
+Add 
+```
+[include]
+    path = ~/.dotfiles/.gitconfig
+```
