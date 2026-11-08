@@ -23,6 +23,21 @@ source "$ZSH_DOTFILES/manjaro/manjaro-zsh-config"
 # Load Manjaro prompt
 source "$ZSH_DOTFILES/manjaro/manjaro-zsh-prompt"
 
+# Toggle Git information in the Powerlevel10k prompt
+_GITPROMPT_ENABLED=1
+
+gitprompt() {
+    if [[ $_GITPROMPT_ENABLED == 1 ]]; then
+        p10k display vcs=hide
+        _GITPROMPT_ENABLED=0
+        echo "Git prompt: OFF"
+    else
+        p10k display vcs=show
+        _GITPROMPT_ENABLED=1
+        echo "Git prompt: ON"
+    fi
+}
+
 # Syntax highlighting must load last
 if [[ -r /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
     source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
