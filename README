@@ -10,3 +10,10 @@ Add
 
 or do a normal clone and then
 `git submodule update --init --recursive`
+
+also
+`mv ~/.zshrc ~/.zshrc.backup`
+`ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc`
+`chsh -s "$(which zsh)"`
+
+`ln -s ~/.dotfiles/.vimrc ~/.vimrc`
