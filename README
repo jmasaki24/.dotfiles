@@ -5,3 +5,8 @@ Add
 [include]
     path = ~/.dotfiles/.gitconfig
 ```
+
+`git clone --recurse-submodules https://github.com/jmasaki24/.dotfiles.git ~/.dotfiles`
+
+or do a normal clone and then
+`git submodule update --init --recursive`
