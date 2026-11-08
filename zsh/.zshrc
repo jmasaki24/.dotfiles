@@ -24,17 +24,25 @@ source "$ZSH_DOTFILES/manjaro/manjaro-zsh-config"
 source "$ZSH_DOTFILES/manjaro/manjaro-zsh-prompt"
 
 # Toggle Git information in the Powerlevel10k prompt
-_GITPROMPT_ENABLED=1
+typeset -g _GITPROMPT_ENABLED=1
+typeset -g _GITPROMPT_ORIGINAL_PATTERN=${POWERLEVEL9K_VCS_DISABLED_WORKDIR_PATTERN-}
+typeset -g _GITPROMPT_HAD_PATTERN=${+POWERLEVEL9K_VCS_DISABLED_WORKDIR_PATTERN}
 
 gitprompt() {
-    if [[ $_GITPROMPT_ENABLED == 1 ]]; then
-        p10k display vcs=hide
+    if (( _GITPROMPT_ENABLED )); then
+        typeset -g POWERLEVEL9K_VCS_DISABLED_WORKDIR_PATTERN='*'
         _GITPROMPT_ENABLED=0
-        echo "Git prompt: OFF"
+        p10k reload
+        print "Git prompt: OFF"
     else
-        p10k display vcs=show
+        if (( _GITPROMPT_HAD_PATTERN )); then
+            typeset -g POWERLEVEL9K_VCS_DISABLED_WORKDIR_PATTERN="$_GITPROMPT_ORIGINAL_PATTERN"
+        else
+            unset POWERLEVEL9K_VCS_DISABLED_WORKDIR_PATTERN
+        fi
         _GITPROMPT_ENABLED=1
-        echo "Git prompt: ON"
+        p10k reload
+        print "Git prompt: ON"
     fi
 }
 
